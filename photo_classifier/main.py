@@ -1,4 +1,3 @@
-from webdav import get_one_file, delete_file
 import logging
 from webdav3.client import Client
 from tempfile import NamedTemporaryFile
