@@ -30,7 +30,11 @@ def main():
         selected_files = [x for x in file_list if row[0] in x]
 
         for f in selected_files:
-            client.move(remote_path_from=f"{os.getenv('NEXTCLOUD_FOLDER')}{f}", remote_path_to=f"/Fotos/Top/{row[1]}/{f}")
+            try:
+                client.move(remote_path_from=f"{os.getenv('NEXTCLOUD_FOLDER')}{f}", remote_path_to=f"/Fotos/Top/{row[1]}/{f}")
+            except Exception as e:
+                logging.error(e)
+                continue
 
 if __name__ == "__main__":
     main()
