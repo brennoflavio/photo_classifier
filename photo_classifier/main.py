@@ -3,6 +3,7 @@ from webdav3.client import Client
 from tempfile import NamedTemporaryFile
 from dotenv import load_dotenv
 import os
+import traceback
 
 load_dotenv()
 
@@ -34,6 +35,7 @@ def main():
                 client.move(remote_path_from=f"{os.getenv('NEXTCLOUD_FOLDER')}{f}", remote_path_to=f"/Fotos/Top/{row[1]}/{f}", overwrite=True)
             except Exception as e:
                 logging.error(e)
+                logging.error(traceback.format_exc())
                 continue
 
 if __name__ == "__main__":
