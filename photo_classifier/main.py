@@ -31,7 +31,7 @@ def main():
 
         for f in selected_files:
             try:
-                client.move(remote_path_from=f"{os.getenv('NEXTCLOUD_FOLDER')}{f}", remote_path_to=f"/Fotos/Top/{row[1]}/{f}")
+                client.move(remote_path_from=f"{os.getenv('NEXTCLOUD_FOLDER')}{f}", remote_path_to=f"/Fotos/Top/{row[1]}/{f}", overwrite=True)
             except Exception as e:
                 logging.error(e)
                 continue
